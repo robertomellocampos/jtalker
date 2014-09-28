@@ -21,12 +21,14 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  grunt.loadNpmTasks('grunt-git-deploy');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
     // Project settings
     yeoman: appConfig,
-
+    
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -387,6 +389,8 @@ module.exports = function (grunt) {
     }
   });
 
+  
+
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -436,6 +440,6 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build',
   ]);
 };
